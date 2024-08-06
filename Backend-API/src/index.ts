@@ -22,7 +22,7 @@ if (cluster.isPrimary) {
     });
 } else {
     try {
-        const port = Number(process.env.PORT);  // Converte a porta para número
+        const port = Number(process.env.PORT); 
         app.listen({ port });
         console.log(`Server started on port ${port}`);
     }
