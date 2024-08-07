@@ -1,4 +1,5 @@
 import { IProduct } from "../entities/IProduct";
+import { IProductOne } from "../entities/IProductRepository";
 import { IProductPagination, ProductRepository } from "../repositories/ProductRepository";
 
 export class ProductService {
@@ -10,7 +11,7 @@ export class ProductService {
         this.productRepository.updateStatusByCode(params);
     }
 
-    async getByCode(params: {code: number}): Promise<IProduct | null> {
+    async getByCode(params: {code: number}): Promise<IProductOne> {
         return this.productRepository.getProductByCode(params);
     }
 

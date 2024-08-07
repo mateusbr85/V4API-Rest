@@ -1,4 +1,5 @@
 import { IProduct } from "../entities/IProduct";
+import { IProductOne } from "../entities/IProductRepository";
 
 
 
@@ -9,8 +10,9 @@ export interface IProductPagination {
     currentPage: number;
 }
 
+
 export interface ProductRepository {
     updateStatusByCode(params: {code: number}): Promise<void>;
-    getProductByCode(params: {code: number}): Promise<IProduct>;
+    getProductByCode(params: {code: number}): Promise<IProductOne>;
     getAllProducts(): Promise<IProductPagination>
 }

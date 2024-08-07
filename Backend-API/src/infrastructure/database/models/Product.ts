@@ -1,4 +1,4 @@
-import { IProduct } from "@domain/products/entities/IProduct";
+import { IProductMongoose } from "@domain/products/entities/IProduct";
 import mongoose, { Schema } from "mongoose";
 
 const ProductSchema: Schema = new Schema({
@@ -28,4 +28,4 @@ const ProductSchema: Schema = new Schema({
 
 });
 
-export const ProductModel = mongoose.model<IProduct>('products', ProductSchema);
+export const ProductModel = mongoose.model<IProductMongoose>('products', ProductSchema);

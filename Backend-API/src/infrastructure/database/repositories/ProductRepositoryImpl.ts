@@ -1,21 +1,31 @@
 import { IProduct } from '@domain/products/entities/IProduct';
 import { ProductService } from "@domain/products/services/ProductService";
 import { ProductModel } from "../models/Product";
-import { IProductPagination } from '@domain/products/repositories/ProductRepository';
+import { IProductPagination, ProductRepository } from '@domain/products/repositories/ProductRepository';
+import { IProductOne } from '@domain/products/entities/IProductRepository';
 
-export class ProductRepositoryImpl implements ProductService {
-    async updateByCode(params: { code: number; }): Promise<void> {
-        const product = await ProductModel.findOne().exec();
-        if(product) { 
-            
+export class ProductRepositoryImpl implements ProductRepository {
+    async updateStatusByCode(params: { code: number; }): Promise<void> {
+
+    }
+    async getProductByCode(params: { code: number; }): Promise<IProductOne> {
+        console.log('testando ::: > ', params.code)
+        const product = await ProductModel.findOne({ code: params.code})
+        let objectReturn: IProductOne = {
+            items: null,
+            totalItems: 0
         }
-        return
+        if (product) {
+            objectReturn = {
+                items: product,
+                totalItems: 1,
+            }
+
+        }
+        return objectReturn
     }
-    getByCode(params: { code: number; }): Promise<IProduct | null> {
+    getAllProducts(): Promise<IProductPagination> {
         throw new Error('Method not implemented.');
     }
-    getAll(): Promise<IProductPagination> {
-        throw new Error('Method not implemented.');
-    } 
-    
+
 }
