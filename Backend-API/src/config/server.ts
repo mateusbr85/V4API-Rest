@@ -1,6 +1,8 @@
 import webRoutes from "@infrastructure/routes/web";
 import buildFastify from "./fastify";
 import {connectDb} from "./db/connection";
+import formBody from "@fastify/cors"
+
 const app = buildFastify();
 app.addHook('onReady', async () => {
     try {
