@@ -28,12 +28,12 @@ export class ProductRepositoryImpl implements ProductRepository {
         const product = await ProductModel.findOne({ code: params.code})
         let objectReturn: IProductOne = {
             items: null,
-            totalItems: 0
+            message: "item not found"
         }
         if (product) {
             objectReturn = {
                 items: product,
-                totalItems: 1,
+                message: "item found"
             }
 
         }
