@@ -1,6 +1,7 @@
-import * as dotenv from 'dotenv';
-import path from 'path';
+import * as dotenv from "dotenv";
 
-const doteEnvConfig = dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+const doteEnvConfig = dotenv.config({
+    path: ".env"
+})
 
 export default doteEnvConfig
